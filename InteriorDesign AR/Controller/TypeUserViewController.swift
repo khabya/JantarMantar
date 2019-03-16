@@ -15,7 +15,7 @@ class TypeUserViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var emailField: UILabel!
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+//    @IBOutlet weak var segmentedControl: UISegmentedControl!
   
     var products: [String] = []
     var productsID: [String] = []
@@ -210,21 +210,8 @@ class TypeUserViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func accType(_ sender: Any) {
         
         let user = db.collection("users").document(id)
-        
-        switch segmentedControl.selectedSegmentIndex
-        {
-        case 0:
             user.updateData(["accType": "Client"])
             print("Client")
-        case 1:
-            user.updateData(["accType": "Professional"])
-            print("Professional")
-        case 2:
-            user.updateData(["accType": "Company"])
-            print("Company")
-        default:
-            break
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
